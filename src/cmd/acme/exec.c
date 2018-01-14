@@ -1660,7 +1660,7 @@ Hard:
 	if(shellflags == nil)
 		shellflags = "-c";
 	rcarg[0] = shell;
-	rcarg[1] = shellargs;
+	rcarg[1] = shellflags;
 	rcarg[2] = t;
 	rcarg[3] = nil;
 	ret = threadspawnd(sfd, rcarg[0], rcarg, dir);
