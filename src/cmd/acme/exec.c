@@ -1448,7 +1448,7 @@ runproc(void *argvp)
 	char *rcarg[4];
 	void **argv;
 	CFsys *fs;
-	char *shell;
+	char *shell, *shellflags;
 
 	threadsetname("runproc");
 
@@ -1656,8 +1656,11 @@ Hard:
 	shell = acmeshell;
 	if(shell == nil)
 		shell = "rc";
+	shellflags = acmeshellflags;
+	if(shellflags == nil)
+		shellflags = "-c";
 	rcarg[0] = shell;
-	rcarg[1] = "-c";
+	rcarg[1] = shellargs;
 	rcarg[2] = t;
 	rcarg[3] = nil;
 	ret = threadspawnd(sfd, rcarg[0], rcarg, dir);

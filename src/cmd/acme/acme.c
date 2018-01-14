@@ -137,6 +137,9 @@ threadmain(int argc, char *argv[])
 	acmeshell = getenv("acmeshell");
 	if(acmeshell && *acmeshell == '\0')
 		acmeshell = nil;
+	acmeshellflags = getenv("acmeshellflags");
+	if(acmeshellflags && *acmeshellflags == '\0')
+		acmeshellflags = nil;
 	p = getenv("tabstop");
 	if(p != nil){
 		maxtab = strtoul(p, nil, 0);
