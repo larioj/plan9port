@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd $HOME
+source .profile
+/usr/local/plan9/bin/plumber
+/usr/local/plan9/bin/fontsrv &
+#font='/mnt/font/Roboto Regular/12a/font'
+lfont='/mnt/font/SourceCodePro-Medium/14a/font'
+tabstop=4 \
+  TERM=dumb \
+  BROWSER='google-chrome' \
+  SHELL=/bin/bash \
+  acmeshell=/bin/bash \
+  acmeshellflags="-ic" \
+  EDITOR=E \
+  PATH=$PATH \
+  PAGER=nobs \
+   /usr/local/plan9/bin/acme -a -b -f $lfont
+
