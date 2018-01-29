@@ -10,7 +10,7 @@ else
 fi
 $PLAN9/bin/fontsrv &
 #font='/mnt/font/Roboto Regular/12a/font'
-lfont='/mnt/font/Monaco/14a/font'
+lfont='/mnt/font/SourceCodePro-Medium/14a/font'
 tabstop=4 \
   TERM=dumb \
   BROWSER='google-chrome' \
