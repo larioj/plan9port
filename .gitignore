@@ -21,3 +21,15 @@ install.sum
 last-change
 src/cmd/awk/y.output
 src/cmd/devdraw/latin1.h
+sky/abell.scat
+sky/bayer.scat
+sky/con.scat
+sky/conindex.scat
+sky/here
+sky/mindex.scat
+sky/name.scat
+sky/ngc2000.scat
+sky/ngc2000type.scat
+sky/patch.scat
+sky/patchindex.scat
+sky/sao.scat
