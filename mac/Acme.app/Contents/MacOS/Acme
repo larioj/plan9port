@@ -2,8 +2,13 @@
 
 cd $HOME
 source .profile
-/usr/local/plan9/bin/plumber
-/usr/local/plan9/bin/fontsrv &
+DefaultPlumbing="$HOME/.config/plumber/plumbing"
+if [ -f $DefaultPlumbing ]; then
+	$PLAN9/bin/plumber -p $DefaultPlumbing
+else
+	$PLAN9/bin/plumber
+fi
+$PLAN9/bin/fontsrv &
 #font='/mnt/font/Roboto Regular/12a/font'
 lfont='/mnt/font/Monaco/14a/font'
 tabstop=4 \
@@ -16,4 +21,3 @@ tabstop=4 \
   PATH=$PATH \
   PAGER=nobs \
    /usr/local/plan9/bin/acme -a -b -f $lfont
-
