@@ -12,8 +12,13 @@ ln -s \
 
 Fix Man Links
 -------------
+When I click on a man link like 9p(1) the paths to the sources
+at the end of page are incorrect. For example it shows
+`/src/cmd/9p.c` instead of `/usr/local/plan9/src/cmd/9p.c`.
+I would like to fix this to show the path of the real sources.
+
 Looking at the plumb rules (`9p read plumb/rules`) we see that
-they are being gerenerated by the rule:
+man pages are being gerenerated by the rule:
 
 ```text
 type	is	text
