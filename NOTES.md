@@ -5,7 +5,7 @@ Link Acme
 ---------
 ```bash
 mkdir -p /Applications/Acme.app/Contents/MacOS
-ln -s \
+ln -sf \
   $PLAN9/mac/Acme.app/Contents/MacOS/Acme \
   /Applications/Acme.app/Contents/MacOS/Acme
 ```
@@ -78,7 +78,11 @@ rules to a file that matches paths beggning with those
 variables.
 
 ```bash
-RULES=$HOME/.config/plumber/plumbing
+PLUMBER_DIR=$HOME/.config/plumber
+# RULES=$PLUMBER_DIR/homes
+RULES=/tmp/current.plumbing
+
+mkdir -p $PLUMBER_DIR
 
 for VARIABLE in '$HOME' '$PLAN9'; do
 	VALUE=$(eval "echo $VARIABLE")
@@ -114,10 +118,10 @@ attr add	addr=\$3
 plumb to edit
 plumb client \$editor
 
-# the variable itself
-data matches '\\$VARIABLE'
-arg isfile	$VALUE
-data set	\$file
+# any directory starting with the variable
+data matches '\\$VARIABLE(/[.a-zA-Z¡-￿0-9_/\-]*[a-zA-Z¡-￿0-9_/\-])?'
+arg isdir	$VALUE/\$1
+data set	\$dir
 plumb to edit
 plumb client \$editor
 
